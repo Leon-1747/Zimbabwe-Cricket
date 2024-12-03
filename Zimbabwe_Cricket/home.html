@@ -1,0 +1,269 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zimbabwe Cricket Team</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Basic styling */
+        body {
+            background-color: #accfe9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #006600;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        .hero-section {
+            background: url('zimbabwe-cricket-hero.jpg') center/cover no-repeat;
+            color: white;
+            padding: 4em 2em;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5em;
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #f1f8e9;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1em;
+            color: #006600;
+        }
+
+        .news, .fixtures {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .card {
+            background: #f7f7f7;
+            padding: 1em;
+            border-radius: 5px;
+            width: calc(33.333% - 1em);
+        }
+
+        .card h3 {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        /* Learn Cricket Buttons */
+        .learn-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+
+        .learn-buttons button {
+            padding: 0.5em 1em;
+            background-color: #006600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .learn-buttons button:hover {
+            background-color: #004d00;
+        }
+
+        .learn-content {
+            display: none;
+            padding: 1em;
+            background-color: #f1f8e9;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #006600;
+            color: white;
+            padding: 2em;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .news, .fixtures {
+                flex-direction: column;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Zimbabwe Cricket</div>
+    <nav>
+        <a href="news1.html">News</a>
+        <a href="fixtures and results.html">Fixtures and Results</a>
+        <a href="teams1.html">Teams</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+		<a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+<section class="hero-section">
+    <h1>Welcome to Zimbabwe Cricket</h1>
+    <p>Home of Zimbabwe's National Cricket Team</p>
+</section>
+
+<section class="section news">
+    <h2>Latest News on Zimbabwe Cricket</h2>
+    <div id="newsContainer" class="news">
+        
+    </div>
+</section>
+
+<section class="section fixtures">
+    <h2>Upcoming Fixtures for Zimbabwe</h2>
+    <div id="fixturesContainer" class="fixtures">
+    </div>
+</section>
+
+<section class="section learn-cricket">
+    <h2>Learn About Cricket</h2>
+    <div class="learn-buttons">
+        <button onclick="showContent('basic')">Basic Knowledge</button>
+        <button onclick="showContent('rules')">Rules</button>
+    </div>
+    
+    <div id="basic" class="learn-content">
+        <h3>Basic Knowledge of Cricket</h3>
+        <ul>
+            <li><strong>Objective</strong>: Score more runs than the opposing team.</li>
+            <li><strong>Teams</strong>: Each team has 11 players.</li>
+            <li><strong>Innings</strong>: Each team bats and bowls once in a match.</li>
+            <li><strong>Runs</strong>: Scored by hitting the ball and running between the wickets.</li>
+            <li><strong>Overs</strong>: A set of six balls bowled by a single bowler.</li>
+            <li><strong>Wickets</strong>: The batting team loses a player if a wicket or bells fall.</li>
+			<li><strong>Stumps</strong>: This is where the bells sit and what the bowlers aim to hit.</li>
+			<li><strong>Bells</strong>: These are placed on top of the stumps.</li>
+        </ul>
+    </div>
+
+    <div id="rules" class="learn-content">
+        <h3>Cricket Rules and Regulations</h3>
+        <ul>
+            <li><strong>Wides</strong>: A ball bowled too far from the batsman for them to hit, which adds one extra run to the batting team.</li>
+            <li><strong>Leg Byes</strong>: Runs scored when the ball hits the batsman’s body (not the bat) and goes to the boundary or allows for runs to be run.</li>
+            <li><strong>No Balls</strong>: An illegal delivery (like overstepping the crease), which gives a run to the batting team and an extra ball.</li>
+            <li><strong>Dead Balls</strong>: A ball that is no longer in play, often due to no action possible, like after a dismissal.</li>
+            <li><strong>Bowling</strong>: Bowlers deliver six legal balls per over.They can bowl 5 times in a T20I match and 10 times in an ODI match</li>
+            <li><strong>Batting</strong>: Batsmen aim to score runs and defend their wicket.</li>
+            <li><strong>Fielding</strong>: Fielders try to prevent runs and dismiss batsmen.</li>
+            <li><strong>Dismissals</strong>: Common ways include bowled, caught, and run-out.</li>
+            <li><strong>Types of Matches</strong>: Test, ODI (One Day), and T20.</li>
+			<li><strong>Run-Out</strong>: When the batsman's stumps are hit before he can make it back to the crease.</li>
+			<li><strong>Crease</strong>: Marking on the table that shows the batsman where to stand and the bowler where to bowl from, this is also where stumps are positioned.</li>
+			<li><strong>Table</strong>: This is where the crease is drawn and where the bowling and batting takes place.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket</p>
+</footer>
+
+<script>
+        function showContent(section) {
+            const contents = document.querySelectorAll('.learn-content');
+            contents.forEach(content => content.style.display = 'none'); 
+            document.getElementById(section).style.display = 'block'; 
+        }
+
+        const newsArticles = [
+            { headline: "Zimbabwe shatter world record!", snippet: "Zimbabwe set new world record...", fullArticle: "The Chevrons recently played against Gambia and shattered the record for the highest runs in men's T20I. They set an amazing 344/4 in 20 overs." },
+            { headline: "Zimbabwe's Star Player Sets Record", snippet: "A new national record set by Zimbabwe’s top player...", fullArticle: "Zimbabwe’s star player has set a new national record, showcasing outstanding skills in the latest match." }
+        ];
+
+        const fixtures = [
+            { teams: "Zimbabwe vs Pakistan", date: "24 Nov, 10.30am" },
+            { teams: "Zimbabwe vs Afghanistan", date: "9 Dec, 10.30am" }
+        ];
+
+        function loadNewsArticles() {
+            document.getElementById('newsContainer').innerHTML = newsArticles.map((article, index) => `
+                <div class="card" onclick="showFullArticle(${index})">
+                    <h3>${article.headline}</h3>
+                    <p>${article.snippet}</p>
+                </div>
+            `).join('');
+        }
+
+        function loadFixtures() {
+            document.getElementById('fixturesContainer').innerHTML = fixtures.map(fixture => `
+                <div class="card">
+                    <h3>${fixture.teams}</h3>
+                    <p>Date: ${fixture.date}</p>
+                </div>
+            `).join('');
+        }
+
+        function showFullArticle(index) {
+            const article = newsArticles[index];
+            document.getElementById('modalHeadline').innerText = article.headline;
+            document.getElementById('modalContent').innerText = article.fullArticle;
+            document.getElementById('newsModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('newsModal').style.display = 'none';
+        }
+
+        // Initialize the page with dynamic content
+        document.addEventListener('DOMContentLoaded', function () {
+            loadNewsArticles();
+            loadFixtures();
+            showContent('newsSection'); // Show News section by default
+        });
+    </script>
+
+</body>
+</html>

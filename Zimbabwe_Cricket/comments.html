@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Section</title>
+    <style>
+        body {
+            color: #333;
+            background-color: #accfe9;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #e62935;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        /* Form styling */
+        form {
+            margin: 2em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea {
+            margin: 0.5em;
+            padding: 1em;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            padding: 1em 2em;
+            background-color: #e62935;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #d11f2f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+
+        /* Add CSS styling for the error messages */
+        #errorMessages {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="news1.html">News</a>
+        <a href="fixtures and results.html">Fixtures and Results</a>
+        <a href="teams1.html">Teams</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+<h1>Your comments help us improve the website</h1><br>
+<h2>We value your comments</h2>
+
+ <div id="errorMessages"></div>
+
+<form id="commentform">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="comment" placeholder="Your comment" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="comments"></div>
+
+<script src="comments.js"></script>
+
+<h2>Thank you!!</h2>
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket Club</p>
+</footer>
+
+</body>
+</html>

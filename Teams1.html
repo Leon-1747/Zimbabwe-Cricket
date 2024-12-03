@@ -1,0 +1,239 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zimbabwe Cricket Teams</title>
+    <style>
+        /* Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #accfe9;
+        }
+
+        /* Header */
+        header {
+            background-color: #e62935;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2em;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #e63946;
+            margin-bottom: 1em;
+        }
+
+        /* Toggle Buttons */
+        .toggle-buttons {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .toggle-buttons button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            margin: 0 0.5em;
+            border-radius: 5px;
+        }
+
+        .toggle-buttons button.active {
+            background-color: #333;
+        }
+
+        /* Fixtures and Results Table */
+        .table-container {
+            display: none;
+        }
+
+        .table-container.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        th, td {
+            padding: 1em;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e63946;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Zimbabwe Cricket</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="news1.html">News</a>
+        <a href="fixtures and results.html">Fixtures and Results</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+		<a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Zimbabwe Cricket Teams</h2>
+
+    <div class="toggle-buttons">
+        <button id="WomensBtn" class="active" onclick="showTable('womens')">Womens</button>
+        <button id="MensBtn" onclick="showTable('mens')">Mens</button>
+    </div>
+
+    <div id="Womensteams" class="table-container active">
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Captain</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody id="WomensTable">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Mensteams" class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Captain</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody id="MensTable">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket Club</p>
+</footer>
+
+<script>
+    const womensData = [
+        { teamName: "Amakhosi", captain: "Andile Mthomba", location: "Bulawayo" },
+        { teamName: "Eagles", captain: "Christabel Chatonzwa", location: "Harare" },
+        { teamName: "Ghetto Star", captain: "Cathrine Chitombo", location: "Mutare" },
+        { teamName: "Gladiators", captain: "Ashley Munatswa", location: "Harare" },
+        { teamName: "Mbizo", captain: "Andria Samani", location: "Kwekwe" },
+        { teamName: "Mega Market Mountaineers", captain: "Pellagia Mujaji", location: "Harare" },
+        { teamName: "Northerns", captain: "Ashley Ndiraya", location: "Harare" },
+        { teamName: "Queens", captain: "Angel Tshuma", location: "Bulawayo" },
+        { teamName: "Rhinos", captain: "Vimbai Kavava", location: "Harare" },
+        { teamName: "Takashinga Queens", captain: "Andelle Zimunu", location: "Harare" }
+    ];
+
+    const mensData = [
+        { teamName: "Amakhosi 1", captain: "Allan Chigoma", location: "Bulawayo" },
+        { teamName: "Eagles", captain: "Tinashe Kamunhukamwe", location: "Harare" },
+        { teamName: "Southerns", captain: "Craig Ervine", location: "Harare" },
+        { teamName: "Southern Rocks", captain: "Richmond Mutumbami", location: "Masvingo" },
+        { teamName: "Rhinos", captain: "Takudzwa Kaitano", location: "Kwekwe" },
+        { teamName: "Northerns", captain: "Ainsley Ndlovu", location: "Harare" },
+        { teamName: "Mega Market Mountaineers", captain: "Kevin Kasuza", location: "Mutare" },
+        { teamName: "Mbizo", captain: "Abel Chirimuta", location: "Kwekwe" },
+        { teamName: "Knights", captain: "Joe Khoma", location: "Masvingo" },
+        { teamName: "Gladiators", captain: "Tatenda Matimbe", location: "Harare" }
+    ];
+
+    function loadData() {
+        const womensTable = document.getElementById('WomensTable');
+        const mensTable = document.getElementById('MensTable');
+
+        womensTable.innerHTML = womensData.map(team => `
+            <tr>
+                <td>${team.teamName}</td>
+                <td>${team.captain}</td>
+                <td>${team.location}</td>
+            </tr>
+        `).join('');
+
+        mensTable.innerHTML = mensData.map(team => `
+            <tr>
+                <td>${team.teamName}</td>
+                <td>${team.captain}</td>
+                <td>${team.location}</td>
+            </tr>
+        `).join('');
+    }
+
+    function showTable(tableType) {
+        const womensTable = document.getElementById('Womensteams');
+        const mensTable = document.getElementById('Mensteams');
+        const womensBtn = document.getElementById('WomensBtn');
+        const mensBtn = document.getElementById('MensBtn');
+
+        womensTable.classList.remove('active');
+        mensTable.classList.remove('active');
+        womensBtn.classList.remove('active');
+        mensBtn.classList.remove('active');
+
+        if (tableType === 'womens') {
+            womensTable.classList.add('active');
+            womensBtn.classList.add('active');
+        } else {
+            mensTable.classList.add('active');
+            mensBtn.classList.add('active');
+        }
+    }
+
+    window.onload = loadData;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zimbabwe Cricket - Fixtures & Results</title>
+    <style>
+        /* Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #accfe9;
+        }
+
+        /* Header */
+        header {
+            background-color: #e63946;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2em;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #e63946;
+            margin-bottom: 1em;
+        }
+
+        /* Toggle Buttons */
+        .toggle-buttons {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .toggle-buttons button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            margin: 0 0.5em;
+            border-radius: 5px;
+        }
+
+        .toggle-buttons button.active {
+            background-color: #333;
+        }
+
+        /* Fixtures and Results Table */
+        .table-container {
+            display: none;
+        }
+
+        .table-container.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        th, td {
+            padding: 1em;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e63946;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Zimbabwe Cricket</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="news1.html">News</a>
+        <a href="teams1.html">Teams</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+		<a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Zimbabwe Cricket Fixtures & Results</h2>
+
+    <div class="toggle-buttons">
+        <button id="fixturesBtn" class="active" onclick="showTable('fixtures')">Fixtures</button>
+        <button id="resultsBtn" onclick="showTable('results')">Results</button>
+    </div>
+
+    <div id="fixtures" class="table-container active">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Location</th>
+                    <th>Match Type</th>
+                </tr>
+            </thead>
+            <tbody id="fixturesTable">
+        
+            </tbody>
+        </table>
+    </div>
+
+   
+    <div id="results" class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Location</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTable">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket Club</p>   
+</footer>
+
+<script>
+    const fixturesData = [
+        { date: "2024-11-24", opponent: "Pakistan", location: "Bulawayo", matchType: "1st ODI" },
+		{ date: "2024-11-26", opponent: "Pakistan", location: "Bulawayo", matchType: "2nd ODI" },
+		{ date: "2024-11-28", opponent: "Pakistan", location: "Bulawayo", matchType: "3rd ODI" },
+		{ date: "2024-12-01", opponent: "Pakistan", location: "Bulawayo", matchType: "1st T20" },
+		{ date: "2024-12-03", opponent: "Pakistan", location: "Bulawayo", matchType: "2nd T20" },
+		{ date: "2024-12-05", opponent: "Pakistan", location: "Bulawayo", matchType: "3rd T20" },
+		{ date: "2024-12-09", opponent: "Afghanistan", location: "Harare", matchType: "1st T20" },
+		{ date: "2024-12-11", opponent: "Afghanistan", location: "Harare", matchType: "2nd T20" },
+        { date: "2024-12-12", opponent: "Afghanistan", location: "Harare", matchType: "3rd ODI" },
+        { date: "2024-12-15", opponent: "Afghanistan", location: "Harare", matchType: "1st ODI" },
+		{ date: "2024-12-17", opponent: "Afghanistan", location: "Harare", matchType: "2nd ODI" },
+		{ date: "2024-12-19", opponent: "Afghanistan", location: "Harare", matchType: "3rd ODI" },
+		{ date: "2024-12-26", opponent: "Afghanistan", location: "Bulawayo", matchType: "1st Test" },
+    ];
+
+    const resultsData = [
+        { date: "2024-05-10", opponent: "Bangladesh", location: "Mirpur", result: "Lost by 5 runs" },
+		{ date: "2024-05-12", opponent: "Bangladesh", location: "Mirpur", result: "Won by 8 wickets, 9 balls remaining" },
+		{ date: "2024-07-06", opponent: "India", location: "Harare", result: "Won by 13 runs" },
+		{ date: "2024-07-07", opponent: "India", location: "Harare", result: "Lost by 100 runs" },
+		{ date: "2024-07-10", opponent: "India", location: "Harare", result: "Lost by 23 runs" },
+		{ date: "2024-07-13", opponent: "India", location: "Harare", result: "Lost by 10 wickets, 28 balls remaining" },
+		{ date: "2024-07-14", opponent: "India", location: "Harare", result: "Lost by 42 runs" },
+		{ date: "2024-07-25", opponent: "Ireland", location: "Belfast", result: "Lost by 4 wickets" },
+        { date: "2024-10-19", opponent: "Seychelles", location: "Nairobi", result: "Won by 76 runs" },
+        { date: "2024-10-22", opponent: "Mozambique", location: "Nairobi", result: "Won by 9 wickets, 90 balls remaining" },
+		{ date: "2024-10-23", opponent: "Rwanda", location: "Nairobi", result: "Won by 149 runs" },
+		{ date: "2024-10-24", opponent: "Gambia", location: "Nairobi", result: "Won by 290 runs" },
+		{ date: "2024-10-20", opponent: "Kenya", location: "Nairobi", result: "Won by 61 runs" },
+    ];
+
+    function loadData() {
+        const fixturesTable = document.getElementById('fixturesTable');
+        const resultsTable = document.getElementById('resultsTable');
+
+        fixturesTable.innerHTML = fixturesData.map(fixture => `
+            <tr>
+                <td>${fixture.date}</td>
+                <td>${fixture.opponent}</td>
+                <td>${fixture.location}</td>
+                <td>${fixture.matchType}</td>
+            </tr>
+        `).join('');
+
+        resultsTable.innerHTML = resultsData.map(result => `
+            <tr>
+                <td>${result.date}</td>
+                <td>${result.opponent}</td>
+                <td>${result.location}</td>
+                <td>${result.result}</td>
+            </tr>
+        `).join('');
+    }
+
+    // Function to toggle between Fixtures and Results
+    function showTable(tableType) {
+        document.getElementById('fixtures').classList.remove('active');
+        document.getElementById('results').classList.remove('active');
+        document.getElementById('fixturesBtn').classList.remove('active');
+        document.getElementById('resultsBtn').classList.remove('active');
+
+        if (tableType === 'fixtures') {
+            document.getElementById('fixtures').classList.add('active');
+            document.getElementById('fixturesBtn').classList.add('active');
+        } else {
+            document.getElementById('results').classList.add('active');
+            document.getElementById('resultsBtn').classList.add('active');
+        }
+    }
+
+    // Load data on page load
+    window.onload = loadData;
+</script>
+
+</body>
+</html>

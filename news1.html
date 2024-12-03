@@ -1,0 +1,245 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zimbabwe Cricket News</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Basic styling */
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #accfe9;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #e63946;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        /* Main Section */
+        .section {
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1em;
+            color: #e63946;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .card {
+            background: #ac855f;
+            padding: 1em;
+            border-radius: 5px;
+            width: calc(33.333% - 1em);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        .card p {
+            margin-bottom: 0.5em;
+        }
+
+        .card button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2em;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 1em;
+            color: #e63946;
+        }
+
+        .modal-content p {
+            margin-bottom: 1em;
+        }
+
+        .close-button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e63946;
+            color: white;
+            padding: 2em;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .news-container {
+                flex-direction: column;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Zimbabwe Cricket News</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="fixtures and results.html">Fixtures</a>
+        <a href="results.html">Results</a>
+        <a href="teams1.html">Teams</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+		<a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+<section class="section">
+    <h2>Latest News on Zimbabwe Cricket</h2>
+    <div id="newsContainer" class="news-container">
+        
+    </div>
+</section>
+
+<div id="newsModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalHeadline"></h3>
+        <p id="modalContent"></p>
+        <button class="close-button" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket Club</p>
+</footer>
+
+<script>
+    const newsArticles = [
+        { 
+            headline: "Eagles ease to innings victory as Mountaineer!", 
+            snippet: "Eagles ease to innings victory as Mountaineers claim big win too...", 
+            fullArticle: `Eagles won by an innings and 205 runs. Only Ali Hamid put up much resistance to the leg-spin of Alex Russell as Tuskers went down to Eagles by an innings and 205 runs in their Logan Cup match at Queens Sports Club in Bulawayo on Sunday. ...` 
+        },
+        { 
+            headline: "Ervine, Marumani score centuries as Eagles br", 
+            snippet: "Ervine, Marumani score centuries as Eagles break record...", 
+            fullArticle: `Day 3 – Stumps: Tuskers trail by 315 runs. Craig Ervine and Tadiwanashe Marumani completed the third and fourth centuries for Eagles against Tuskers at Queens Sports Club in Bulawayo on Saturday...`
+        },
+        { 
+            headline: "Zimbabwe makes historic debut in ICC Women's C", 
+            snippet: "Zimbabwe make historic debut in ICC Women's Championship...", 
+            fullArticle: `Zimbabwe Cricket is thrilled to announce Zimbabwe’s historic debut in the ICC Women’s Championship, a pivotal moment that promises to elevate women’s cricket across the nation...`
+        },
+        { 
+            headline: "Zimbabwe defeat Kenya to complete perfect cam", 
+            snippet: "Zimbabwe defeat Kenya to complete perfect campaign...", 
+            fullArticle: `Zimbabwe won by 61 runs. Zimbabwe completed their perfect campaign at a sub-regional qualifier tournament for the ICC Men’s T20 World Cup 2026 with their fifth victory out of five matches in Nairobi on Thursday...`
+        },
+        { 
+            headline: "Curran hogs the limelight with century as Log", 
+            snippet: "Curran hogs the limelight with century as Logan Cup gets underway...", 
+            fullArticle: `Day 1 – Stumps: Rhinos trail by 20 runs. Ben Curran hit a fine century that put Rhinos in a strong position at the end of the first day’s play of their Logan Cup match against Tuskers at Kwekwe Sports Club on Sunday...`
+        },
+        { 
+            headline: "Teenage debutant helps USA Women beat Zimbabw", 
+            snippet: "Teenage debutant helps USA Women beat Zimbabwe Women in final match...", 
+            fullArticle: `USA Women won by seven wickets. Debutant teenager Chetna Pagydyala scored an unbeaten century to inspire the United States of America Women to a comfortable seven-wicket victory against Zimbabwe Women in their fifth and final one-day international match at Harare Sports Club on Monday...`
+        }
+    ];
+
+    const newsContainer = document.getElementById('newsContainer');
+    const modal = document.getElementById('newsModal');
+    const modalHeadline = document.getElementById('modalHeadline');
+    const modalContent = document.getElementById('modalContent');
+
+    function openModal(article) {
+        modalHeadline.textContent = article.headline;
+        modalContent.textContent = article.fullArticle;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    newsArticles.forEach(article => {
+        const newsCard = document.createElement('div');
+        newsCard.classList.add('card');
+
+        newsCard.innerHTML = `
+            <h3>${article.headline}</h3>
+            <p>${article.snippet}</p>
+            <button onclick='openModal(${JSON.stringify(article)})'>Read More</button>
+        `;
+
+        newsContainer.appendChild(newsCard);
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zimbabwe Cricket Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #accfe9;
+    }
+
+    .gallery-container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      flex: 1 1 calc(25% - 15px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+	
+	 /* Header */
+        header {
+            background-color: #e63946;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(85%);
+    }
+
+    .gallery-item:hover::after {
+      content: "View";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: 50px auto;
+      display: block;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+	
+	/* Footer */
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+
+    .modal-close:hover,
+    .modal-close:focus {
+      color: red;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .gallery-item {
+        flex: 1 1 calc(50% - 15px);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .gallery-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body> 
+
+<header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="news1.html">News</a>
+		<a href="teams1.html">Teams</a>
+        <a href="fixtures and results.html">Fixtures and Results</a>
+        <a href="contact.html">Contact Us</a>
+		<a href="comments.html">Comments</a>
+    </nav>
+</header>
+
+  <h1 style="text-align: center; color: #d50000;">Zimbabwe Cricket Gallery</h1>
+  
+  <div class="gallery-container">
+
+    <div class="gallery-item"><img src="cr1.jpg" alt="Image 1"></div><p>
+    <div class="gallery-item"><img src="cr2.jpg" alt="Image 2"></div><p>
+    <div class="gallery-item"><img src="cr3.jpg" alt="Image 3"></div>
+    <div class="gallery-item"><img src="cr9.jpg" alt="Image 4"></div>
+    <div class="gallery-item"><img src="cr5.jpg" alt="Image 5"></div>
+    <div class="gallery-item"><img src="cr6.jpg" alt="Image 6"></div>
+    <div class="gallery-item"><img src="cr7.jpg" alt="Image 7"></div><p>
+    <div class="gallery-item"><img src="cr20.jpg" alt="Image 9"></div><p>
+    <div class="gallery-item"><img src="cr8.jpg" alt="Image 10"></div><p>
+	<div class="gallery-item"><img src="cr13.jpg" alt="Image 11"></div><p>
+	<div class="gallery-item"><img src="cr14.jpg" alt="Image 12"></div>
+	<div class="gallery-item"><img src="cr15.jpg" alt="Image 13"></div>
+	<div class="gallery-item"><img src="cr18.jpg" alt="Image 14"></div>
+    <div class="gallery-item"><img src="cr17.jpg" alt="Image 15"></div>
+    <div class="gallery-item"><img src="cr16.jpg" alt="Image 16"></div>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Modal Image">
+  </div>
+
+<footer>
+    <p>&copy; 2024 Zimbabwe Cricket Club</p>   
+</footer>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeModal = document.querySelector(".modal-close");
+
+    document.querySelectorAll(".gallery-item img").forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
